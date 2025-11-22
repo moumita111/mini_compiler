@@ -29,3 +29,27 @@ It demonstrates the core stages of compilation including lexical analysis, synta
 1. Clone the repository:
    ```bash
    git clone <repository_url>
+
+2. Run the compiler:
+  ```bash
+   python main.py
+
+
+
+
+## Sample input
+int a;
+int b;
+a = 5;
+b = 10;
+if (a < b) {
+    a = a + b;
+} else {
+    b = b - a;
+}
+while (a > 0) {
+    a = a - 1;
+}
+
+
+

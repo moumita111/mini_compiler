@@ -1,0 +1,1020 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> stmt_list
+Rule 2     stmt_list -> stmt_list stmt
+Rule 3     stmt_list -> stmt
+Rule 4     stmt -> decl_stmt
+Rule 5     stmt -> assign_stmt
+Rule 6     stmt -> if_stmt
+Rule 7     stmt -> while_stmt
+Rule 8     decl_stmt -> type ID SEMICOLON
+Rule 9     type -> INT
+Rule 10    type -> FLOAT
+Rule 11    assign_stmt -> ID ASSIGN expr SEMICOLON
+Rule 12    if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+Rule 13    if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+Rule 14    while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+Rule 15    condition -> expr EQ expr
+Rule 16    condition -> expr LT expr
+Rule 17    condition -> expr GT expr
+Rule 18    expr -> expr PLUS expr
+Rule 19    expr -> expr MINUS expr
+Rule 20    expr -> expr TIMES expr
+Rule 21    expr -> expr DIVIDE expr
+Rule 22    expr -> LPAREN expr RPAREN
+Rule 23    expr -> NUMBER
+Rule 24    expr -> ID
+
+Terminals, with rules where they appear
+
+ASSIGN               : 11
+DIVIDE               : 21
+ELSE                 : 13
+EQ                   : 15
+FLOAT                : 10
+GT                   : 17
+ID                   : 8 11 24
+IF                   : 12 13
+INT                  : 9
+LBRACE               : 12 13 13 14
+LPAREN               : 12 13 14 22
+LT                   : 16
+MINUS                : 19
+NUMBER               : 23
+PLUS                 : 18
+RBRACE               : 12 13 13 14
+RPAREN               : 12 13 14 22
+SEMICOLON            : 8 11
+TIMES                : 20
+WHILE                : 14
+error                : 
+
+Nonterminals, with rules where they appear
+
+assign_stmt          : 5
+condition            : 12 13 14
+decl_stmt            : 4
+expr                 : 11 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22
+if_stmt              : 6
+program              : 0
+stmt                 : 2 3
+stmt_list            : 1 2 12 13 13 14
+type                 : 8
+while_stmt           : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . stmt_list
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    program                        shift and go to state 1
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> stmt_list .
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    $end            reduce using rule 1 (program -> stmt_list .)
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt                           shift and go to state 14
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 3
+
+    (3) stmt_list -> stmt .
+
+    ID              reduce using rule 3 (stmt_list -> stmt .)
+    IF              reduce using rule 3 (stmt_list -> stmt .)
+    WHILE           reduce using rule 3 (stmt_list -> stmt .)
+    INT             reduce using rule 3 (stmt_list -> stmt .)
+    FLOAT           reduce using rule 3 (stmt_list -> stmt .)
+    $end            reduce using rule 3 (stmt_list -> stmt .)
+    RBRACE          reduce using rule 3 (stmt_list -> stmt .)
+
+
+state 4
+
+    (4) stmt -> decl_stmt .
+
+    ID              reduce using rule 4 (stmt -> decl_stmt .)
+    IF              reduce using rule 4 (stmt -> decl_stmt .)
+    WHILE           reduce using rule 4 (stmt -> decl_stmt .)
+    INT             reduce using rule 4 (stmt -> decl_stmt .)
+    FLOAT           reduce using rule 4 (stmt -> decl_stmt .)
+    $end            reduce using rule 4 (stmt -> decl_stmt .)
+    RBRACE          reduce using rule 4 (stmt -> decl_stmt .)
+
+
+state 5
+
+    (5) stmt -> assign_stmt .
+
+    ID              reduce using rule 5 (stmt -> assign_stmt .)
+    IF              reduce using rule 5 (stmt -> assign_stmt .)
+    WHILE           reduce using rule 5 (stmt -> assign_stmt .)
+    INT             reduce using rule 5 (stmt -> assign_stmt .)
+    FLOAT           reduce using rule 5 (stmt -> assign_stmt .)
+    $end            reduce using rule 5 (stmt -> assign_stmt .)
+    RBRACE          reduce using rule 5 (stmt -> assign_stmt .)
+
+
+state 6
+
+    (6) stmt -> if_stmt .
+
+    ID              reduce using rule 6 (stmt -> if_stmt .)
+    IF              reduce using rule 6 (stmt -> if_stmt .)
+    WHILE           reduce using rule 6 (stmt -> if_stmt .)
+    INT             reduce using rule 6 (stmt -> if_stmt .)
+    FLOAT           reduce using rule 6 (stmt -> if_stmt .)
+    $end            reduce using rule 6 (stmt -> if_stmt .)
+    RBRACE          reduce using rule 6 (stmt -> if_stmt .)
+
+
+state 7
+
+    (7) stmt -> while_stmt .
+
+    ID              reduce using rule 7 (stmt -> while_stmt .)
+    IF              reduce using rule 7 (stmt -> while_stmt .)
+    WHILE           reduce using rule 7 (stmt -> while_stmt .)
+    INT             reduce using rule 7 (stmt -> while_stmt .)
+    FLOAT           reduce using rule 7 (stmt -> while_stmt .)
+    $end            reduce using rule 7 (stmt -> while_stmt .)
+    RBRACE          reduce using rule 7 (stmt -> while_stmt .)
+
+
+state 8
+
+    (8) decl_stmt -> type . ID SEMICOLON
+
+    ID              shift and go to state 15
+
+
+state 9
+
+    (11) assign_stmt -> ID . ASSIGN expr SEMICOLON
+
+    ASSIGN          shift and go to state 16
+
+
+state 10
+
+    (12) if_stmt -> IF . LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> IF . LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+
+    LPAREN          shift and go to state 17
+
+
+state 11
+
+    (14) while_stmt -> WHILE . LPAREN condition RPAREN LBRACE stmt_list RBRACE
+
+    LPAREN          shift and go to state 18
+
+
+state 12
+
+    (9) type -> INT .
+
+    ID              reduce using rule 9 (type -> INT .)
+
+
+state 13
+
+    (10) type -> FLOAT .
+
+    ID              reduce using rule 10 (type -> FLOAT .)
+
+
+state 14
+
+    (2) stmt_list -> stmt_list stmt .
+
+    ID              reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    IF              reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    WHILE           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    INT             reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    FLOAT           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    $end            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    RBRACE          reduce using rule 2 (stmt_list -> stmt_list stmt .)
+
+
+state 15
+
+    (8) decl_stmt -> type ID . SEMICOLON
+
+    SEMICOLON       shift and go to state 19
+
+
+state 16
+
+    (11) assign_stmt -> ID ASSIGN . expr SEMICOLON
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 21
+
+state 17
+
+    (12) if_stmt -> IF LPAREN . condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> IF LPAREN . condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (15) condition -> . expr EQ expr
+    (16) condition -> . expr LT expr
+    (17) condition -> . expr GT expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    condition                      shift and go to state 24
+    expr                           shift and go to state 25
+
+state 18
+
+    (14) while_stmt -> WHILE LPAREN . condition RPAREN LBRACE stmt_list RBRACE
+    (15) condition -> . expr EQ expr
+    (16) condition -> . expr LT expr
+    (17) condition -> . expr GT expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    condition                      shift and go to state 26
+    expr                           shift and go to state 25
+
+state 19
+
+    (8) decl_stmt -> type ID SEMICOLON .
+
+    ID              reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+    IF              reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+    WHILE           reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+    INT             reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+    FLOAT           reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+    $end            reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+    RBRACE          reduce using rule 8 (decl_stmt -> type ID SEMICOLON .)
+
+
+state 20
+
+    (24) expr -> ID .
+
+    SEMICOLON       reduce using rule 24 (expr -> ID .)
+    PLUS            reduce using rule 24 (expr -> ID .)
+    MINUS           reduce using rule 24 (expr -> ID .)
+    TIMES           reduce using rule 24 (expr -> ID .)
+    DIVIDE          reduce using rule 24 (expr -> ID .)
+    EQ              reduce using rule 24 (expr -> ID .)
+    LT              reduce using rule 24 (expr -> ID .)
+    GT              reduce using rule 24 (expr -> ID .)
+    RPAREN          reduce using rule 24 (expr -> ID .)
+
+
+state 21
+
+    (11) assign_stmt -> ID ASSIGN expr . SEMICOLON
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+    SEMICOLON       shift and go to state 27
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+
+state 22
+
+    (22) expr -> LPAREN . expr RPAREN
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 32
+
+state 23
+
+    (23) expr -> NUMBER .
+
+    SEMICOLON       reduce using rule 23 (expr -> NUMBER .)
+    PLUS            reduce using rule 23 (expr -> NUMBER .)
+    MINUS           reduce using rule 23 (expr -> NUMBER .)
+    TIMES           reduce using rule 23 (expr -> NUMBER .)
+    DIVIDE          reduce using rule 23 (expr -> NUMBER .)
+    EQ              reduce using rule 23 (expr -> NUMBER .)
+    LT              reduce using rule 23 (expr -> NUMBER .)
+    GT              reduce using rule 23 (expr -> NUMBER .)
+    RPAREN          reduce using rule 23 (expr -> NUMBER .)
+
+
+state 24
+
+    (12) if_stmt -> IF LPAREN condition . RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> IF LPAREN condition . RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+
+    RPAREN          shift and go to state 33
+
+
+state 25
+
+    (15) condition -> expr . EQ expr
+    (16) condition -> expr . LT expr
+    (17) condition -> expr . GT expr
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+    EQ              shift and go to state 34
+    LT              shift and go to state 35
+    GT              shift and go to state 36
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+
+state 26
+
+    (14) while_stmt -> WHILE LPAREN condition . RPAREN LBRACE stmt_list RBRACE
+
+    RPAREN          shift and go to state 37
+
+
+state 27
+
+    (11) assign_stmt -> ID ASSIGN expr SEMICOLON .
+
+    ID              reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+    IF              reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+    WHILE           reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+    INT             reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+    FLOAT           reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+    $end            reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+    RBRACE          reduce using rule 11 (assign_stmt -> ID ASSIGN expr SEMICOLON .)
+
+
+state 28
+
+    (18) expr -> expr PLUS . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 38
+
+state 29
+
+    (19) expr -> expr MINUS . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 39
+
+state 30
+
+    (20) expr -> expr TIMES . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 40
+
+state 31
+
+    (21) expr -> expr DIVIDE . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 41
+
+state 32
+
+    (22) expr -> LPAREN expr . RPAREN
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+    RPAREN          shift and go to state 42
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+
+state 33
+
+    (12) if_stmt -> IF LPAREN condition RPAREN . LBRACE stmt_list RBRACE
+    (13) if_stmt -> IF LPAREN condition RPAREN . LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+
+    LBRACE          shift and go to state 43
+
+
+state 34
+
+    (15) condition -> expr EQ . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 44
+
+state 35
+
+    (16) condition -> expr LT . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 45
+
+state 36
+
+    (17) condition -> expr GT . expr
+    (18) expr -> . expr PLUS expr
+    (19) expr -> . expr MINUS expr
+    (20) expr -> . expr TIMES expr
+    (21) expr -> . expr DIVIDE expr
+    (22) expr -> . LPAREN expr RPAREN
+    (23) expr -> . NUMBER
+    (24) expr -> . ID
+
+    LPAREN          shift and go to state 22
+    NUMBER          shift and go to state 23
+    ID              shift and go to state 20
+
+    expr                           shift and go to state 46
+
+state 37
+
+    (14) while_stmt -> WHILE LPAREN condition RPAREN . LBRACE stmt_list RBRACE
+
+    LBRACE          shift and go to state 47
+
+
+state 38
+
+    (18) expr -> expr PLUS expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    SEMICOLON       reduce using rule 18 (expr -> expr PLUS expr .)
+    EQ              reduce using rule 18 (expr -> expr PLUS expr .)
+    LT              reduce using rule 18 (expr -> expr PLUS expr .)
+    GT              reduce using rule 18 (expr -> expr PLUS expr .)
+    RPAREN          reduce using rule 18 (expr -> expr PLUS expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+  ! PLUS            [ reduce using rule 18 (expr -> expr PLUS expr .) ]
+  ! MINUS           [ reduce using rule 18 (expr -> expr PLUS expr .) ]
+  ! TIMES           [ reduce using rule 18 (expr -> expr PLUS expr .) ]
+  ! DIVIDE          [ reduce using rule 18 (expr -> expr PLUS expr .) ]
+
+
+state 39
+
+    (19) expr -> expr MINUS expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    SEMICOLON       reduce using rule 19 (expr -> expr MINUS expr .)
+    EQ              reduce using rule 19 (expr -> expr MINUS expr .)
+    LT              reduce using rule 19 (expr -> expr MINUS expr .)
+    GT              reduce using rule 19 (expr -> expr MINUS expr .)
+    RPAREN          reduce using rule 19 (expr -> expr MINUS expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+  ! PLUS            [ reduce using rule 19 (expr -> expr MINUS expr .) ]
+  ! MINUS           [ reduce using rule 19 (expr -> expr MINUS expr .) ]
+  ! TIMES           [ reduce using rule 19 (expr -> expr MINUS expr .) ]
+  ! DIVIDE          [ reduce using rule 19 (expr -> expr MINUS expr .) ]
+
+
+state 40
+
+    (20) expr -> expr TIMES expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    SEMICOLON       reduce using rule 20 (expr -> expr TIMES expr .)
+    EQ              reduce using rule 20 (expr -> expr TIMES expr .)
+    LT              reduce using rule 20 (expr -> expr TIMES expr .)
+    GT              reduce using rule 20 (expr -> expr TIMES expr .)
+    RPAREN          reduce using rule 20 (expr -> expr TIMES expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+  ! PLUS            [ reduce using rule 20 (expr -> expr TIMES expr .) ]
+  ! MINUS           [ reduce using rule 20 (expr -> expr TIMES expr .) ]
+  ! TIMES           [ reduce using rule 20 (expr -> expr TIMES expr .) ]
+  ! DIVIDE          [ reduce using rule 20 (expr -> expr TIMES expr .) ]
+
+
+state 41
+
+    (21) expr -> expr DIVIDE expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    SEMICOLON       reduce using rule 21 (expr -> expr DIVIDE expr .)
+    EQ              reduce using rule 21 (expr -> expr DIVIDE expr .)
+    LT              reduce using rule 21 (expr -> expr DIVIDE expr .)
+    GT              reduce using rule 21 (expr -> expr DIVIDE expr .)
+    RPAREN          reduce using rule 21 (expr -> expr DIVIDE expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+  ! PLUS            [ reduce using rule 21 (expr -> expr DIVIDE expr .) ]
+  ! MINUS           [ reduce using rule 21 (expr -> expr DIVIDE expr .) ]
+  ! TIMES           [ reduce using rule 21 (expr -> expr DIVIDE expr .) ]
+  ! DIVIDE          [ reduce using rule 21 (expr -> expr DIVIDE expr .) ]
+
+
+state 42
+
+    (22) expr -> LPAREN expr RPAREN .
+
+    SEMICOLON       reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    PLUS            reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    MINUS           reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    TIMES           reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    DIVIDE          reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    EQ              reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    LT              reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    GT              reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+    RPAREN          reduce using rule 22 (expr -> LPAREN expr RPAREN .)
+
+
+state 43
+
+    (12) if_stmt -> IF LPAREN condition RPAREN LBRACE . stmt_list RBRACE
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE . stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt_list                      shift and go to state 48
+    stmt                           shift and go to state 3
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 44
+
+    (15) condition -> expr EQ expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+    RPAREN          reduce using rule 15 (condition -> expr EQ expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+
+state 45
+
+    (16) condition -> expr LT expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+    RPAREN          reduce using rule 16 (condition -> expr LT expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+
+state 46
+
+    (17) condition -> expr GT expr .
+    (18) expr -> expr . PLUS expr
+    (19) expr -> expr . MINUS expr
+    (20) expr -> expr . TIMES expr
+    (21) expr -> expr . DIVIDE expr
+
+    RPAREN          reduce using rule 17 (condition -> expr GT expr .)
+    PLUS            shift and go to state 28
+    MINUS           shift and go to state 29
+    TIMES           shift and go to state 30
+    DIVIDE          shift and go to state 31
+
+
+state 47
+
+    (14) while_stmt -> WHILE LPAREN condition RPAREN LBRACE . stmt_list RBRACE
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt_list                      shift and go to state 49
+    stmt                           shift and go to state 3
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 48
+
+    (12) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list . RBRACE
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list . RBRACE ELSE LBRACE stmt_list RBRACE
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    RBRACE          shift and go to state 50
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt                           shift and go to state 14
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 49
+
+    (14) while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list . RBRACE
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    RBRACE          shift and go to state 51
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt                           shift and go to state 14
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 50
+
+    (12) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE . ELSE LBRACE stmt_list RBRACE
+
+    ID              reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    IF              reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    WHILE           reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    INT             reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    FLOAT           reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    $end            reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    RBRACE          reduce using rule 12 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    ELSE            shift and go to state 52
+
+
+state 51
+
+    (14) while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .
+
+    ID              reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    IF              reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    WHILE           reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    INT             reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    FLOAT           reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    $end            reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+    RBRACE          reduce using rule 14 (while_stmt -> WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE .)
+
+
+state 52
+
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE . LBRACE stmt_list RBRACE
+
+    LBRACE          shift and go to state 53
+
+
+state 53
+
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE . stmt_list RBRACE
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt_list                      shift and go to state 54
+    stmt                           shift and go to state 3
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 54
+
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list . RBRACE
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . decl_stmt
+    (5) stmt -> . assign_stmt
+    (6) stmt -> . if_stmt
+    (7) stmt -> . while_stmt
+    (8) decl_stmt -> . type ID SEMICOLON
+    (11) assign_stmt -> . ID ASSIGN expr SEMICOLON
+    (12) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (13) if_stmt -> . IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+    (14) while_stmt -> . WHILE LPAREN condition RPAREN LBRACE stmt_list RBRACE
+    (9) type -> . INT
+    (10) type -> . FLOAT
+
+    RBRACE          shift and go to state 55
+    ID              shift and go to state 9
+    IF              shift and go to state 10
+    WHILE           shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+
+    stmt                           shift and go to state 14
+    decl_stmt                      shift and go to state 4
+    assign_stmt                    shift and go to state 5
+    if_stmt                        shift and go to state 6
+    while_stmt                     shift and go to state 7
+    type                           shift and go to state 8
+
+state 55
+
+    (13) if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .
+
+    ID              reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    IF              reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    WHILE           reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    INT             reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    FLOAT           reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    $end            reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    RBRACE          reduce using rule 13 (if_stmt -> IF LPAREN condition RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 38 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 38 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 38 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 38 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 39 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 39 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 39 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 39 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 40 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 40 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 40 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 40 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 41 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 41 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 41 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 41 resolved as shift

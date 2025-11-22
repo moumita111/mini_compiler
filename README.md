@@ -26,15 +26,10 @@ It demonstrates the core stages of compilation including lexical analysis, synta
 ---
 
 ## Usage
-1. Clone the repository:
+
+1. **Navigate to the project folder:**
    ```bash
-   git clone <repository_url>
-
-2. Run the compiler:
-  ```bash
-   python main.py
-
-
+   cd mini-compiler
 
 
 

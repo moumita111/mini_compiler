@@ -37,19 +37,9 @@ It demonstrates the core stages of compilation including lexical analysis, synta
 
 
 
-## Sample input
-int a;
-int b;
-a = 5;
-b = 10;
-if (a < b) {
-    a = a + b;
-} else {
-    b = b - a;
-}
-while (a > 0) {
-    a = a - 1;
-}
+
+
+
 
 
 
